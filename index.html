@@ -5,102 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriele Muratori - Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
+        .section-heading {
+            position: relative;
+            display: inline-block;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3B82F6;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .section-heading:hover::after {
+            transform: scaleX(1);
+        }
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
     </style>
 </head>
-<body class="bg-white text-gray-900">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        <!-- Header -->
-        <div class="mb-10">
-            <h1 class="text-2xl sm:text-3xl font-semibold mb-2">Gabriele Muratori</h1>
-            <p class="text-sm sm:text-base text-gray-600">+1 326 467 5474 · gm455@njit.edu · gabrielemuratori.tech</p>
-            <p class="text-sm sm:text-base text-gray-600 mt-2">Grew up in Italy, studying in the US, currently living in NY/NJ</p>
+<body class="bg-gradient-to-br from-gray-50 to-white text-gray-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+        <!-- Header with gradient accent -->
+        <div class="relative mb-16 p-6 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-t-lg"></div>
+            <h1 class="text-3xl sm:text-4xl font-bold mb-3">Gabriele Muratori</h1>
+            <div class="space-y-2 text-gray-600">
+                <p class="flex items-center gap-2">
+                    <span>📧</span>
+                    <a href="mailto:gm455@njit.edu" class="hover:text-blue-600 transition-colors">gm455@njit.edu</a>
+                </p>
+                <p class="flex items-center gap-2">
+                    <span>📱</span>
+                    <a href="tel:+13264675474" class="hover:text-blue-600 transition-colors">+1 326 467 5474</a>
+                </p>
+                <p class="flex items-center gap-2">
+                    <span>🌍</span>
+                    <a href="https://gabrielemuratori.tech" target="_blank" class="hover:text-blue-600 transition-colors">gabrielemuratori.tech</a>
+                </p>
+                <p class="flex items-center gap-2">
+                    <span>📍</span>
+                    <span>Grew up in Italy ➝ Studying in NY/NJ Area</span>
+                </p>
+            </div>
         </div>
 
         <!-- Education -->
-        <div class="mb-7">
-            <p class="text-sm sm:text-base text-gray-900">New Jersey Institute of Technology, NJ 🇺🇸</p>
-            <p class="text-sm sm:text-base text-gray-600">B.S. in Computer Science (2023 - 2027)</p>
+        <div class="mb-12">
+            <h2 class="text-xl font-bold mb-4 section-heading">Education 🎓</h2>
+            <div class="p-4 bg-white rounded-lg hover-card">
+                <p class="font-medium text-gray-900">New Jersey Institute of Technology, NJ 🇺🇸</p>
+                <p class="text-gray-600">B.S. in Computer Science (2023 - 2027)</p>
+            </div>
         </div>
 
         <!-- Business -->
-        <div class="mb-7">
-            <h2 class="text-sm sm:text-l font-medium mb-3"><b>Business 👷🏾‍♂️📈</b></h2>
-            <div class="space-y-2">
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900">Founder @ Pillar - Coming Soon</p>
+        <div class="mb-12">
+            <h2 class="text-xl font-bold mb-4 section-heading">Business 👷🏾‍♂️📈</h2>
+            <div class="space-y-4">
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <p class="font-medium">Founder @ Pillar<span class="text-blue-600 ml-2">Coming Soon</span></p>
                 </div>
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900">Founder @ <a href="https://www.careerwhiz.ai" class="text-blue-600">CareerWhiz AI</a> - 10,000+ users, 50+ paying customers</p>
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <p class="font-medium">Founder @ <a href="https://www.careerwhiz.ai" class="text-blue-600 hover:text-blue-700 transition-colors">CareerWhiz AI</a></p>
+                    <p class="text-gray-600 mt-1">10,000+ users, 50+ paying customers</p>
                 </div>
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900">Founder @ <a href="https://www.youtube.com/@GameTheSystem/videos" class="text-blue-600">GameTheSystem</a> - 30,000+ subscribers, 5M+ Views</p>
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <p class="font-medium">Founder @ <a href="https://www.youtube.com/@GameTheSystem/videos" class="text-blue-600 hover:text-blue-700 transition-colors">GameTheSystem</a></p>
+                    <p class="text-gray-600 mt-1">30,000+ subscribers, 5M+ Views</p>
                 </div>
             </div>
         </div>
 
         <!-- Experience -->
-        <div class="mb-8">
-            <h2 class="text-sm sm:text-l font-medium mb-3"><b>Experience 💼⏰</b></h2>
-            <div class="space-y-2">
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900">Growth Intern @ BiteSight (YC Winter '24)</p>
+        <div class="mb-12">
+            <h2 class="text-xl font-bold mb-4 section-heading">Experience 💼</h2>
+            <div class="space-y-4">
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <p class="font-medium">Growth Intern @ BiteSight (YC Winter '24)</p>
                 </div>
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900">Software Engineering Intern @ IHMC</p>
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <p class="font-medium">Software Engineering Intern @ IHMC</p>
                 </div>
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900">Marketing Intern @ StudyFetch</p>
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <p class="font-medium">Marketing Intern @ StudyFetch</p>
                 </div>
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900">Delivery Technician @ NJIT</p>
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <p class="font-medium">Delivery Technician @ NJIT</p>
                 </div>
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900">Research Intern @ Stanford University</p>
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <p class="font-medium">Research Intern @ Stanford University</p>
                 </div>
             </div>
-        </div>
-
-        <!-- Leadership -->
-        <div class="mb-8">
-            <h2 class="text-sm sm:text-l font-medium mb-3"><b>Leadership 🫡👽</b></h2>
-            <p class="text-sm sm:text-base text-gray-900">Technical Director (E-Board) - Google Developer Student Club NJIT</p>
         </div>
 
         <!-- Projects -->
-        <div class="mb-8">
-            <h2 class="text-sm sm:text-l font-medium mb-3"><b>Projects 📆📊</b></h2>
-            <div class="space-y-2">
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900"><a href="https://www.filmrollr.com/" class="text-blue-600">FilmRollr</a> - Film Camera Effects With One Click</p>
+        <div class="mb-12">
+            <h2 class="text-xl font-bold mb-4 section-heading">Projects 📆</h2>
+            <div class="space-y-4">
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <a href="https://www.filmrollr.com/" class="block">
+                        <p class="font-medium text-blue-600 hover:text-blue-700 transition-colors">FilmRollr</p>
+                        <p class="text-gray-600 mt-1">Film Camera Effects With One Click</p>
+                    </a>
                 </div>
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900"><a href="https://barsetter-f385a.web.app/" class="text-blue-600">Bar Setter</a> - Training bartenders one flashcard at a time</p>
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <a href="https://barsetter-f385a.web.app/" class="block">
+                        <p class="font-medium text-blue-600 hover:text-blue-700 transition-colors">Bar Setter</p>
+                        <p class="text-gray-600 mt-1">Training bartenders one flashcard at a time</p>
+                    </a>
                 </div>
-                <div>
-                    <p class="text-sm sm:text-base text-gray-900">RBL News - Your News in 60 Seconds</p>
+                <div class="p-4 bg-white rounded-lg hover-card">
+                    <p class="font-medium">RBL News</p>
+                    <p class="text-gray-600 mt-1">Your News in 60 Seconds</p>
                 </div>
             </div>
         </div>
 
-        <!-- Skills -->
-        <div class="mb-8">
-            <div>
-                <h2 class="text-sm sm:text-l font-medium mb-3"><b>Languages 🌎</b></h2>
-                <p class="text-sm sm:text-base text-gray-600">Italian (native), French (native), English (fluent)</p>
+        <!-- Languages -->
+        <div class="mb-12">
+            <h2 class="text-xl font-bold mb-4 section-heading">Languages 🌎</h2>
+            <div class="p-4 bg-white rounded-lg hover-card">
+                <p class="text-gray-600">
+                    <span class="font-medium">Italian</span> (native),
+                    <span class="font-medium">French</span> (native),
+                    <span class="font-medium">English</span> (fluent)
+                </p>
             </div>
         </div>
 
         <!-- Contact -->
         <div class="mb-8">
-            <h2 class="text-sm sm:text-l font-medium mb-3"><b>Contact</b></h2>
-            <p class="text-sm sm:text-base text-gray-600">Email: gm455@njit.edu | muratorigabriele1@gmail.com</p>
-            <p class="text-sm sm:text-base text-gray-600">Phone: +1 326 467 5474</p>
-            <p class="text-sm sm:text-base text-gray-600">Twitter: @gmurtt | Instagram: @gabm06</p>
+            <h2 class="text-xl font-bold mb-4 section-heading">Contact 📲</h2>
+            <div class="p-4 bg-white rounded-lg space-y-2 hover-card">
+                <p class="flex items-center gap-2">
+                    <span>📧</span>
+                    <a href="mailto:muratorigabriele1@gmail.com" class="text-gray-600 hover:text-blue-600 transition-colors">muratorigabriele1@gmail.com</a>
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://twitter.com/gmurtt" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors">Twitter: @gmurtt</a>
+                    <span>|</span>
+                    <a href="https://instagram.com/gabm06" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors">Instagram: @gabm06</a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
