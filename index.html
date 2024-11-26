@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabriele Muratori - Portfolio</title>
+    <link rel="icon" type="image/png" href="pfp.png" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-        }
-        .section-heading {
-            position: relative;
-            display: inline-block;
         }
         .section-heading::after {
             content: '';
@@ -28,117 +25,113 @@
         .section-heading:hover::after {
             transform: scaleX(1);
         }
-        .hover-card {
-            transition: all 0.3s ease;
+        .profile-picture {
+            transition: transform 0.3s ease;
         }
-        .hover-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        .profile-picture:hover {
+            transform: scale(1.02);
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 to-white text-gray-900">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-8">
-        <!-- Header with gradient accent -->
-            <div class="absolute top-0 left-0 w-full h-1 "></div>
-            <h1 class="text-3xl sm:text-4xl font-bold mb-2">Gabriele Muratori</h1>
-            <div class="space-y-1 text-gray-600">
-                <p class="flex items-center gap-2">
-                    <span>📍</span>
-                    <span>Grew up in Italy ➝ Studying in NY/NJ Area</span>
+<body class="bg-white text-gray-900">
+    <div class="max-w-2xl mx-auto px-3 sm:px-6 py-8 sm:py-12">
+        <!-- Header with profile picture -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-8 sm:mb-12">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-gray-100 shadow-md profile-picture">
+                <img src="pfp.png" alt="Gabriele Muratori" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h1 class="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2 text-center sm:text-left">Gabriele Muratori</h1>
+                <p class="text-gray-600 text-sm sm:text-base text-center sm:text-left">
+                    📍 Grew up in Italy ➝ Studying in NY/NJ Area
                 </p>
             </div>
- 
+        </div>
+
         <!-- Business -->
-        <div class="mb-6 mt-8">
-            <h2 class="text-xl font-bold mb-2 section-heading">Business 👷🏾‍♂️📈</h2>
-            <div class="space-y-2">
-                <div class="p-3 bg-white rounded-lg hover-card">
-                    <p class="font-medium">Founder @ Pillar<span class="text-blue-600 ml-2">Coming Soon</span></p>
+        <section class="mb-8 sm:mb-10">
+            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Business 👷🏾‍♂️📈</h2>
+            <div class="space-y-3 sm:space-y-4">
+                <div>
+                    <p class="font-medium text-sm sm:text-base">Founder @ Pillar<span class="text-blue-600 ml-2">Coming Soon</span></p>
                 </div>
-                <div class="p-3 bg-white rounded-lg hover-card">
-                    <p class="font-medium">Founder @ <a href="https://www.careerwhiz.ai" class="text-blue-600 hover:text-blue-700 transition-colors">CareerWhiz AI</a></p>
-                    <p class="text-gray-500 mt-0.5">10,000+ users, 50+ paying customers</p>
+                <div>
+                    <p class="font-medium text-sm sm:text-base">Founder @ <a href="https://www.careerwhiz.ai" class="text-blue-600 hover:text-blue-700">CareerWhiz AI</a></p>
+                    <p class="text-gray-500 text-xs sm:text-sm">10,000+ users, 50+ paying customers</p>
                 </div>
-                <div class="p-3 bg-white rounded-lg hover-card">
-                    <p class="font-medium">Founder @ <a href="https://www.youtube.com/@GameTheSystem/videos" class="text-blue-600 hover:text-blue-700 transition-colors">GameTheSystem</a></p>
-                    <p class="text-gray-500 mt-0.5">30,000+ subscribers, 5M+ Views</p>
+                <div>
+                    <p class="font-medium text-sm sm:text-base">Founder @ <a href="https://www.youtube.com/@GameTheSystem/videos" class="text-blue-600 hover:text-blue-700">GameTheSystem</a></p>
+                    <p class="text-gray-500 text-xs sm:text-sm">30,000+ subscribers, 5M+ Views</p>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Experience -->
-        <div class="mb-6">
-            <h2 class="text-xl font-bold mb-2 section-heading">Experience 💼</h2>
-            <div class="space-y-2">
-                <div class="p-3 bg-white rounded-lg hover-card">
-                    <p class="font-medium">Growth Intern @ BiteSight (YC Winter '24)</p>
-                </div>
-                <div class="p-3 bg-white rounded-lg hover-card">
-                    <p class="font-medium">Software Engineering Intern @ IHMC</p>
-                </div>
-                <div class="p-3 bg-white rounded-lg hover-card">
-                    <p class="font-medium">Marketing Intern @ StudyFetch</p>
-                </div>
-                <div class="p-3 bg-white rounded-lg hover-card">
-                    <p class="font-medium">Delivery Technician @ NJIT</p>
-                </div>
-                <div class="p-3 bg-white rounded-lg hover-card">
-                    <p class="font-medium">Research Intern @ Stanford University</p>
-                </div>
+        <section class="mb-8 sm:mb-10">
+            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Experience 💼</h2>
+            <div class="space-y-2 sm:space-y-3">
+                <p class="font-medium text-sm sm:text-base">Growth Intern @ BiteSight (YC Winter '24)</p>
+                <p class="font-medium text-sm sm:text-base">Software Engineering Intern @ IHMC</p>
+                <p class="font-medium text-sm sm:text-base">Marketing Intern @ StudyFetch</p>
+                <p class="font-medium text-sm sm:text-base">Delivery Technician @ NJIT</p>
+                <p class="font-medium text-sm sm:text-base">Research Intern @ Stanford University</p>
             </div>
-        </div>
+        </section>
 
         <!-- Projects -->
-        <div class="mb-6">
-            <h2 class="text-xl font-bold mb-2 section-heading">Projects 📆</h2>
-            <div class="space-y-2">
-                <div class="p-3 bg-white rounded-lg hover-card">
+        <section class="mb-8 sm:mb-10">
+            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Projects 📆</h2>
+            <div class="space-y-3 sm:space-y-4">
+                <div>
+                    <a href="https://insiderflow-cf8f0899712b.herokuapp.com" class="block">
+                        <p class="font-medium text-sm sm:text-base text-blue-600 hover:text-blue-700">InsiderFlow</p>
+                        <p class="text-gray-500 text-xs sm:text-sm">Make better investment decisions with insider data</p>
+                    </a>
+                </div>
+                <div>
                     <a href="https://www.filmrollr.com/" class="block">
-                        <p class="font-medium text-blue-600 hover:text-blue-700 transition-colors">FilmRollr</p>
-                        <p class="text-gray-500 mt-0.5">Film Camera Effects With One Click</p>
+                        <p class="font-medium text-sm sm:text-base text-blue-600 hover:text-blue-700">FilmRollr</p>
+                        <p class="text-gray-500 text-xs sm:text-sm">Film Camera Effects With One Click</p>
                     </a>
                 </div>
-                <div class="p-3 bg-white rounded-lg hover-card">
+                <div>
                     <a href="https://barsetter-f385a.web.app/" class="block">
-                        <p class="font-medium text-blue-600 hover:text-blue-700 transition-colors">Bar Setter</p>
-                        <p class="text-gray-500 mt-0.5">Training bartenders one flashcard at a time</p>
+                        <p class="font-medium text-sm sm:text-base text-blue-600 hover:text-blue-700">Bar Setter</p>
+                        <p class="text-gray-500 text-xs sm:text-sm">Training bartenders one flashcard at a time</p>
                     </a>
                 </div>
-                <div class="p-3 bg-white rounded-lg hover-card">
-                    <p class="font-medium">RBL News</p>
-                    <p class="text-gray-500 mt-0.5">Your News in 60 Seconds</p>
+                <div>
+                    <p class="font-medium text-sm sm:text-base">RBL News</p>
+                    <p class="text-gray-500 text-xs sm:text-sm">Your News in 60 Seconds</p>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Languages -->
-        <div class="mb-6">
-            <h2 class="text-xl font-bold mb-2 section-heading">Languages 🌎</h2>
-            <div class="p-3 bg-white rounded-lg hover-card">
-                <p class="text-gray-600">
-                    <span class="font-medium">Italian</span> (native),
-                    <span class="font-medium">French</span> (native),
-                    <span class="font-medium">English</span> (fluent)
-                </p>
-            </div>
-        </div>
+        <section class="mb-8 sm:mb-10">
+            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Languages 🌎</h2>
+            <p class="text-gray-600 text-sm sm:text-base">
+                <span class="font-medium">Italian</span> (native),
+                <span class="font-medium">French</span> (native),
+                <span class="font-medium">English</span> (fluent)
+            </p>
+        </section>
 
         <!-- Contact -->
-        <div class="mb-6">
-            <h2 class="text-xl font-bold mb-2 section-heading">Contact 📲</h2>
-            <div class="p-3 bg-white rounded-lg hover-card">
+        <section class="mb-8 sm:mb-10">
+            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Contact 📲</h2>
+            <div>
                 <p class="flex items-center gap-2">
                     <span>📧</span>
-                    <a href="mailto:muratorigabriele1@gmail.com" class="text-gray-600 hover:text-blue-600 transition-colors">muratorigabriele1@gmail.com</a>
+                    <a href="mailto:muratorigabriele1@gmail.com" class="text-gray-600 hover:text-blue-600 text-sm sm:text-base">muratorigabriele1@gmail.com</a>
                 </p>
-                <div class="flex gap-4 mt-1">
-                    <a href="https://twitter.com/gmurtt" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors">Twitter: @gmurtt</a>
+                <div class="flex gap-4 mt-2">
+                    <a href="https://twitter.com/gmurtt" target="_blank" class="text-gray-600 hover:text-blue-600 text-sm sm:text-base">Twitter: @gmurtt</a>
                     <span>|</span>
-                    <a href="https://instagram.com/gabm06" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors">Instagram: @gabm06</a>
+                    <a href="https://instagram.com/gabm06" target="_blank" class="text-gray-600 hover:text-blue-600 text-sm sm:text-base">Instagram: @gabm06</a>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </body>
 </html>
