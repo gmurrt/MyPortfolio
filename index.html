@@ -3,10 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriele Muratori - Portfolio</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Gabriele Muratori - Tech Entrepreneur & Software Engineer Portfolio</title>
+    <meta name="title" content="Gabriele Muratori - Tech Entrepreneur & Software Engineer Portfolio">
+    <meta name="description" content="Gabriele Muratori is a tech entrepreneur and software engineer based in the NY/NJ area. Founder of CareerWhiz AI and GameTheSystem, with experience at YC startups and Stanford University.">
+    <meta name="author" content="Gabriele Muratori">
+    <meta name="keywords" content="Gabriele Muratori, Software Engineer, Tech Entrepreneur, CareerWhiz AI, GameTheSystem, NY Tech, NJ Tech, Stanford, YCombinator, Italian Engineer">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gabrielemuratori.tech/">
+    <meta property="og:title" content="Gabriele Muratori - Tech Entrepreneur & Software Engineer Portfolio">
+    <meta property="og:description" content="Gabriele Muratori is a tech entrepreneur and software engineer based in the NY/NJ area. Founder of CareerWhiz AI and GameTheSystem, with experience at YC startups and Stanford University.">
+    <meta property="og:image" content="pfp.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://gabrielemuratori.tech/">
+    <meta property="twitter:title" content="Gabriele Muratori - Tech Entrepreneur & Software Engineer Portfolio">
+    <meta property="twitter:description" content="Gabriele Muratori is a tech entrepreneur and software engineer based in the NY/NJ area. Founder of CareerWhiz AI and GameTheSystem, with experience at YC startups and Stanford University.">
+    <meta property="twitter:image" content="pfp.png">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="pfp.png" />
+    <link rel="apple-touch-icon" href="pfp.png">
+
+    <!-- Styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gabriele Muratori",
+      "url": "https://gabrielemuratori.tech",
+      "image": "pfp.png",
+      "sameAs": [
+        "https://twitter.com/gmurtt",
+        "https://instagram.com/gabm06",
+        "https://www.youtube.com/@GameTheSystem"
+      ],
+      "jobTitle": "Tech Entrepreneur",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "CareerWhiz AI"
+      },
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "Stanford University"
+      },
+      "knowsLanguage": ["Italian", "French", "English"]
+    }
+    </script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -34,41 +86,41 @@
     </style>
 </head>
 <body class="bg-white text-gray-900">
-    <div class="max-w-2xl mx-auto px-3 sm:px-6 py-8 sm:py-12">
+    <main class="max-w-2xl mx-auto px-3 sm:px-6 py-8 sm:py-12">
         <!-- Header with profile picture -->
-        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <header class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-8 sm:mb-12">
             <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-gray-100 shadow-md profile-picture">
-                <img src="pfp.png" alt="Gabriele Muratori" class="w-full h-full object-cover">
+                <img src="pfp.png" alt="Gabriele Muratori - Tech Entrepreneur and Software Engineer" class="w-full h-full object-cover" width="96" height="96">
             </div>
             <div>
                 <h1 class="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2 text-center sm:text-left">Gabriele Muratori</h1>
                 <p class="text-gray-600 text-sm sm:text-base text-center sm:text-left">
-                    📍 Grew up in Italy ➝ Studying in NY/NJ Area
+                    <span aria-label="Location">📍</span> Grew up in Italy ➝ Studying in NY/NJ Area
                 </p>
             </div>
-        </div>
+        </header>
 
         <!-- Business -->
-        <section class="mb-8 sm:mb-10">
-            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Business 👷🏾‍♂️📈</h2>
+        <section class="mb-8 sm:mb-10" aria-labelledby="business-section">
+            <h2 id="business-section" class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Business 👷🏾‍♂️📈</h2>
             <div class="space-y-3 sm:space-y-4">
                 <div>
                     <p class="font-medium text-sm sm:text-base">Founder @ Pillar<span class="text-blue-600 ml-2">Coming Soon</span></p>
                 </div>
                 <div>
-                    <p class="font-medium text-sm sm:text-base">Founder @ <a href="https://www.careerwhiz.ai" class="text-blue-600 hover:text-blue-700">CareerWhiz AI</a></p>
+                    <p class="font-medium text-sm sm:text-base">Founder @ <a href="https://www.careerwhiz.ai" class="text-blue-600 hover:text-blue-700" target="_blank" rel="noopener">CareerWhiz AI</a></p>
                     <p class="text-gray-500 text-xs sm:text-sm">10,000+ users, 50+ paying customers</p>
                 </div>
                 <div>
-                    <p class="font-medium text-sm sm:text-base">Founder @ <a href="https://www.youtube.com/@GameTheSystem/videos" class="text-blue-600 hover:text-blue-700">GameTheSystem</a></p>
+                    <p class="font-medium text-sm sm:text-base">Founder @ <a href="https://www.youtube.com/@GameTheSystem/videos" class="text-blue-600 hover:text-blue-700" target="_blank" rel="noopener">GameTheSystem</a></p>
                     <p class="text-gray-500 text-xs sm:text-sm">30,000+ subscribers, 5M+ Views</p>
                 </div>
             </div>
         </section>
 
         <!-- Experience -->
-        <section class="mb-8 sm:mb-10">
-            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Experience 💼</h2>
+        <section class="mb-8 sm:mb-10" aria-labelledby="experience-section">
+            <h2 id="experience-section" class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Experience 💼</h2>
             <div class="space-y-2 sm:space-y-3">
                 <p class="font-medium text-sm sm:text-base">Growth Intern @ BiteSight (YC Winter '24)</p>
                 <p class="font-medium text-sm sm:text-base">Software Engineering Intern @ IHMC</p>
@@ -79,23 +131,23 @@
         </section>
 
         <!-- Projects -->
-        <section class="mb-8 sm:mb-10">
-            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Projects 📆</h2>
+        <section class="mb-8 sm:mb-10" aria-labelledby="projects-section">
+            <h2 id="projects-section" class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Projects 📆</h2>
             <div class="space-y-3 sm:space-y-4">
                 <div>
-                    <a href="https://insiderflow-cf8f0899712b.herokuapp.com" class="block">
+                    <a href="https://insiderflow-cf8f0899712b.herokuapp.com" class="block" target="_blank" rel="noopener">
                         <p class="font-medium text-sm sm:text-base text-blue-600 hover:text-blue-700">InsiderFlow</p>
                         <p class="text-gray-500 text-xs sm:text-sm">Make better investment decisions with insider data</p>
                     </a>
                 </div>
                 <div>
-                    <a href="https://www.filmrollr.com/" class="block">
+                    <a href="https://www.filmrollr.com/" class="block" target="_blank" rel="noopener">
                         <p class="font-medium text-sm sm:text-base text-blue-600 hover:text-blue-700">FilmRollr</p>
                         <p class="text-gray-500 text-xs sm:text-sm">Film Camera Effects With One Click</p>
                     </a>
                 </div>
                 <div>
-                    <a href="https://barsetter-f385a.web.app/" class="block">
+                    <a href="https://barsetter-f385a.web.app/" class="block" target="_blank" rel="noopener">
                         <p class="font-medium text-sm sm:text-base text-blue-600 hover:text-blue-700">Bar Setter</p>
                         <p class="text-gray-500 text-xs sm:text-sm">Training bartenders one flashcard at a time</p>
                     </a>
@@ -108,8 +160,8 @@
         </section>
 
         <!-- Languages -->
-        <section class="mb-8 sm:mb-10">
-            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Languages 🌎</h2>
+        <section class="mb-8 sm:mb-10" aria-labelledby="languages-section">
+            <h2 id="languages-section" class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Languages 🌎</h2>
             <p class="text-gray-600 text-sm sm:text-base">
                 <span class="font-medium">Italian</span> (native),
                 <span class="font-medium">French</span> (native),
@@ -118,20 +170,20 @@
         </section>
 
         <!-- Contact -->
-        <section class="mb-8 sm:mb-10">
-            <h2 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Contact 📲</h2>
+        <section class="mb-8 sm:mb-10" aria-labelledby="contact-section">
+            <h2 id="contact-section" class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 section-heading inline-block relative">Contact 📲</h2>
             <div>
                 <p class="flex items-center gap-2">
-                    <span>📧</span>
+                    <span aria-label="Email">📧</span>
                     <a href="mailto:muratorigabriele1@gmail.com" class="text-gray-600 hover:text-blue-600 text-sm sm:text-base">muratorigabriele1@gmail.com</a>
                 </p>
                 <div class="flex gap-4 mt-2">
-                    <a href="https://twitter.com/gmurtt" target="_blank" class="text-gray-600 hover:text-blue-600 text-sm sm:text-base">Twitter: @gmurtt</a>
+                    <a href="https://twitter.com/gmurtt" target="_blank" rel="noopener" class="text-gray-600 hover:text-blue-600 text-sm sm:text-base">Twitter: @gmurtt</a>
                     <span>|</span>
-                    <a href="https://instagram.com/gabm06" target="_blank" class="text-gray-600 hover:text-blue-600 text-sm sm:text-base">Instagram: @gabm06</a>
+                    <a href="https://instagram.com/gabm06" target="_blank" rel="noopener" class="text-gray-600 hover:text-blue-600 text-sm sm:text-base">Instagram: @gabm06</a>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 </body>
 </html>
