@@ -19,6 +19,7 @@
             --card-bg: rgba(249, 250, 251, 0.8);
             --card-border: rgba(0, 0, 0, 0.1);
             --text-secondary: #4B5563;
+            --company-blue: #2563eb;
         }
 
         html.dark {
@@ -27,6 +28,7 @@
             --card-bg: rgba(26, 26, 26, 0.6);
             --card-border: rgba(255, 255, 255, 0.1);
             --text-secondary: #9CA3AF;
+            --company-blue: #60a5fa;
         }
 
         body {
@@ -54,6 +56,21 @@
             border: 2px solid var(--card-border);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+        }
+
+        .company-name {
+            color: var(--company-blue);
+            font-weight: 500;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .profile-info {
+            flex-grow: 1;
         }
 
         .social-icon {
@@ -110,7 +127,6 @@
             }
         }
 
-        // Check for saved theme preference
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             if (savedTheme === 'dark') {
@@ -133,13 +149,13 @@
     <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
         <!-- Header -->
         <header class="mb-12">
-            <div class="flex flex-row items-start gap-6">
+            <div class="profile-section">
                 <div class="w-24 h-24 rounded-2xl overflow-hidden profile-picture flex-shrink-0">
                     <img src="pfp.png" alt="Gabriele Muratori" class="w-full h-full object-cover">
                 </div>
-                <div class="text-left flex flex-col justify-center h-24">
+                <div class="profile-info">
                     <h1 class="text-2xl font-semibold tracking-tight mb-1">Gabriele Muratori</h1>
-                    <div class="text-secondary text-sm space-y-0.5">
+                    <div class="text-secondary text-sm ">
                         <p>- 18 y/o</p>
                         <p>- Grew up in Italy</p>
                         <p>- Studying in NY/NJ Area</p>
@@ -147,6 +163,7 @@
                 </div>
             </div>
         </header>
+
         <!-- Business -->
         <section class="mb-12" aria-labelledby="business-section">
             <h2 class="text-lg font-medium section-title">Business 👷🏾‍♂️📈</h2>
@@ -154,7 +171,7 @@
                 <a href="https://thepillar.app" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">Co-Founder @ Pillar</p>
+                            <p class="font-medium">Co-Founder @ <span class="company-name">Pillar</span></p>
                             <p class="text-secondary text-sm mt-1">On the side documenting the journey with 50k+ newsletter subscribers</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +182,7 @@
                 <a href="https://www.careerwhiz.ai" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">Founder @ CareerWhiz AI</p>
+                            <p class="font-medium">Founder @ <span class="company-name">CareerWhiz AI</span></p>
                             <p class="text-secondary text-sm mt-1">10,000+ users, 100+ paying customers, 1M+ social media views</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -176,7 +193,7 @@
                 <a href="https://www.youtube.com/@GameTheSystem/videos" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">Founder @ GameTheSystem</p>
+                            <p class="font-medium">Founder @ <span class="company-name">GameTheSystem</span></p>
                             <p class="text-secondary text-sm mt-1">30,000+ subscribers, 5M+ Views</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,7 +211,7 @@
                 <a href="https://www.bitesight.com" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">Growth Intern @ BiteSight (YC Winter '24)</p>
+                            <p class="font-medium">Growth Intern @ <span class="company-name">BiteSight</span> (YC Winter '24)</p>
                             <p class="text-secondary text-sm mt-1">Generated 200k+ social media views & 2.5k+ downloads</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -205,7 +222,7 @@
                 <a href="https://www.ihmc.us" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">Software Engineering Intern @ IHMC</p>
+                            <p class="font-medium">Software Engineering Intern @ <span class="company-name">IHMC</span></p>
                             <p class="text-secondary text-sm mt-1">Developed ML-backed wildfire response simulation for US Navy</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,7 +233,7 @@
                 <a href="https://www.studyfetch.com" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">Marketing Intern @ StudyFetch</p>
+                            <p class="font-medium">Marketing Intern @ <span class="company-name">StudyFetch</span></p>
                             <p class="text-secondary text-sm mt-1">Generated 20M+ social media views & $15k+ in revenue</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -227,7 +244,7 @@
                 <a href="https://theinformaticists.wordpress.com/2022/10/03/biofeedback-in-performance/" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">Research Intern @ Stanford University</p>
+                            <p class="font-medium">Research Intern @ <span class="company-name">Stanford University</span></p>
                             <p class="text-secondary text-sm mt-1">Researched biofeedback in performance. Co-authored & published research paper.</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -237,6 +254,7 @@
                 </a>
             </div>
         </section>
+
         <!-- Projects -->
         <section class="mb-12">
             <h2 class="text-lg font-medium section-title">Projects 📆</h2>
@@ -244,7 +262,7 @@
                 <a href="https://insiderflow-cf8f0899712b.herokuapp.com" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">InsiderFlow</p>
+                            <p class="font-medium"><span class="company-name">InsiderFlow</span></p>
                             <p class="text-secondary text-sm mt-1">Make better investment decisions with insider data</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -255,7 +273,7 @@
                 <a href="https://www.filmrollr.com/" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">FilmRollr</p>
+                            <p class="font-medium"><span class="company-name">FilmRollr</span></p>
                             <p class="text-secondary text-sm mt-1">Film Camera Effects With One Click</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -266,23 +284,23 @@
                 <a href="https://barsetter-f385a.web.app/" target="_blank" rel="noopener" class="block">
                     <div class="container-card flex justify-between items-center">
                         <div>
-                            <p class="font-medium">Bar Setter</p>
+                            <p class="font-medium"><span class="company-name">Bar Setter</span></p>
                             <p class="text-secondary text-sm mt-1">Training bartenders one flashcard at a time</p>
                         </div>
                         <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                         </svg>
                     </div>
                 </a>
                 <div class="container-card">
                     <div>
-                        <p class="font-medium">RBL News</p>
+                        <p class="font-medium"><span class="company-name">RBL News</span></p>
                         <p class="text-secondary text-sm mt-1">Your News in 60 Seconds</p>
                     </div>
                 </div>
                 <div class="container-card">
                     <div>
-                        <p class="font-medium">CardBoard</p>
+                        <p class="font-medium"><span class="company-name">CardBoard</span></p>
                         <p class="text-secondary text-sm mt-1">Save gift cards to your phone</p>
                     </div>
                 </div>
