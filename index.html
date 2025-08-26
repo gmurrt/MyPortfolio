@@ -6,7 +6,7 @@
     <title>Gabriele Muratori</title>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -20,6 +20,7 @@
             --card-border: rgba(0, 0, 0, 0.1);
             --text-secondary: #4B5563;
             --company-blue: #2563eb;
+            --accent-color: #10b981;
         }
 
         html.dark {
@@ -29,38 +30,34 @@
             --card-border: rgba(255, 255, 255, 0.1);
             --text-secondary: #9CA3AF;
             --company-blue: #60a5fa;
+            --accent-color: #34d399;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-        }
-        
-        .container-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 0.75rem;
-            border: 1px solid var(--card-border);
-            transition: all 0.2s ease;
-            backdrop-filter: blur(12px);
-        }
-        
-        .container-card:hover {
-            transform: translateY(-1px);
-            border-color: var(--card-border);
-            background: var(--card-bg);
+            line-height: 1.5;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .profile-picture {
-            border: 2px solid var(--card-border);
+            border: 3px solid var(--card-border);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
 
         .company-name {
             color: var(--company-blue);
-            font-weight: 500;
+            font-weight: 600;
+        }
+
+        .company-name:hover {
+            text-decoration: underline;
         }
 
         .profile-section {
@@ -82,20 +79,11 @@
         }
 
         .section-title {
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: -0.01em;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             color: var(--text-color);
-        }
-
-        .link-icon {
-            opacity: 0.6;
-            transition: all 0.2s ease;
-        }
-
-        a:hover .link-icon {
-            opacity: 1;
-            transform: translateX(2px);
+            font-size: 1rem;
         }
 
         .theme-toggle {
@@ -108,10 +96,171 @@
             border: 1px solid var(--card-border);
             cursor: pointer;
             transition: all 0.2s ease;
+            z-index: 1000;
         }
 
         .theme-toggle:hover {
             transform: translateY(-1px);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .section-compact {
+            margin-bottom: 1.5rem;
+        }
+
+        .entry {
+            margin-bottom: 0.75rem;
+        }
+
+        .entry-title {
+            font-weight: 500;
+            font-size: 0.875rem;
+            line-height: 1.4;
+            margin-bottom: 0.25rem;
+        }
+
+        .entry-description {
+            color: var(--text-secondary);
+            font-size: 0.8125rem;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-modal {
+            position: fixed;
+            bottom: 8rem;
+            right: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            min-width: 280px;
+        }
+
+        .contact-modal.show {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+        }
+
+        .cta-text {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Desktop only - push content to the right */
+        @media (min-width: 768px) {
+            .main-container {
+                margin-left: calc(50% + 2rem);
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .main-container {
+                padding: 1rem;
+                margin: 0 auto;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .profile-info h1 {
+                font-size: 1.75rem;
+            }
+            
+            .profile-info p {
+                font-size: 0.875rem;
+            }
+            
+            .grid-layout {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 20px;
+            }
+            
+            .section-compact {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Ensure content doesn't get too cramped on small screens */
+        @media (max-height: 600px) {
+            body {
+                align-items: flex-start;
+                padding-top: 2rem;
+            }
+        }
+
+        /* Mobile landscape and small desktop adjustments */
+        @media (max-height: 500px) and (min-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding-top: 1rem;
+            }
+            
+            .main-container {
+                margin-left: calc(50% + 1rem);
+            }
         }
     </style>
 
@@ -126,6 +275,20 @@
                 localStorage.setItem('theme', 'dark');
             }
         }
+
+        function toggleContact() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.toggle('show');
+        }
+
+        // Close contact modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('contactModal');
+            const cta = document.getElementById('floatingCta');
+            if (!modal.contains(event.target) && !cta.contains(event.target)) {
+                modal.classList.remove('show');
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
@@ -146,218 +309,166 @@
         </svg>
     </button>
 
-    <main class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+    <div class="main-container">
         <!-- Header -->
-        <header class="mb-12">
+        <header class="header-compact">
             <div class="profile-section">
-                <div class="w-24 h-24 rounded-2xl overflow-hidden profile-picture flex-shrink-0">
+                <div class="w-20 h-20 rounded-full overflow-hidden profile-picture flex-shrink-0">
                     <img src="pfp.png" alt="Gabriele Muratori" class="w-full h-full object-cover">
                 </div>
                 <div class="profile-info">
-                    <h1 class="text-2xl font-semibold tracking-tight mb-1">Gabriele Muratori</h1>
-                    <div class="text-secondary text-sm ">
-                        <p>- 18 y/o</p>
-                        <p>- Grew up in Italy</p>
-                        <p>- Studying in NY/NJ Area</p>
-                    </div>
+                    <h1 class="text-2xl font-bold tracking-tight mb-2">Gabriele Muratori</h1>
+                    <p class="text-secondary text-base font-medium" style="margin-top: -10px;">I like to build and scale software</p>
                 </div>
             </div>
         </header>
 
-        <!-- Business -->
-        <section class="mb-12" aria-labelledby="business-section">
-            <h2 class="text-lg font-medium section-title">Business 👷🏾‍♂️📈</h2>
-            <div class="space-y-2">
-                <a href="https://boulevardlegacy.com" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium">Co-Founder @ <span class="company-name">Boulevard Legacy LLC</span></p>
-                            <p class="text-secondary text-sm mt-1">On the side documenting the journey with 100k+ newsletter subscribers</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://www.careerwhiz.ai" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium">Founder @ <span class="company-name">CareerWhiz AI</span></p>
-                            <p class="text-secondary text-sm mt-1">10,000+ users, 100+ paying customers, 1M+ social media views</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/@GameTheSystem/videos" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium">Founder @ <span class="company-name">GameTheSystem</span></p>
-                            <p class="text-secondary text-sm mt-1">30,000+ subscribers, 5M+ Views</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Experience -->
-        <section class="mb-12">
-            <h2 class="text-lg font-medium section-title">Experience 💼</h2>
-            <div class="space-y-2">
-                <a href="https://www.bitesight.com" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium">Growth Intern @ <span class="company-name">BiteSight</span> (YC Winter '24)</p>
-                            <p class="text-secondary text-sm mt-1">Generated 200k+ social media views & 2.5k+ downloads</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://www.ihmc.us" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium">Software Engineering Intern @ <span class="company-name">IHMC</span></p>
-                            <p class="text-secondary text-sm mt-1">Developed ML-backed wildfire response simulation for US Navy</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://www.studyfetch.com" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium">Marketing Intern @ <span class="company-name">StudyFetch</span></p>
-                            <p class="text-secondary text-sm mt-1">Generated 20M+ social media views & $15k+ in revenue</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://theinformaticists.wordpress.com/2022/10/03/biofeedback-in-performance/" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium">Research Intern @ <span class="company-name">Stanford University</span></p>
-                            <p class="text-secondary text-sm mt-1">Researched biofeedback in performance. Co-authored & published research paper.</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section class="mb-12">
-            <h2 class="text-lg font-medium section-title">Projects 📆</h2>
-            <div class="space-y-2">
-                <a href="https://insiderflow-cf8f0899712b.herokuapp.com" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium"><span class="company-name">InsiderFlow</span></p>
-                            <p class="text-secondary text-sm mt-1">Make better investment decisions with insider data</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://www.filmrollr.com/" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium"><span class="company-name">FilmRollr</span></p>
-                            <p class="text-secondary text-sm mt-1">Film Camera Effects With One Click</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-                <a href="https://barsetter-f385a.web.app/" target="_blank" rel="noopener" class="block">
-                    <div class="container-card flex justify-between items-center">
-                        <div>
-                            <p class="font-medium"><span class="company-name">Bar Setter</span></p>
-                            <p class="text-secondary text-sm mt-1">Training bartenders one flashcard at a time</p>
-                        </div>
-                        <svg class="w-5 h-5 text-secondary link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                        </svg>
-                    </div>
-                </a>
-                <div class="container-card">
+        <div class="grid-layout">
+            <!-- Left Column -->
+            <div>
+                <!-- Business -->
+                <section class="section-compact">
+                    <h2 class="section-title">Business</h2>
                     <div>
-                        <p class="font-medium"><span class="company-name">RBL News</span></p>
-                        <p class="text-secondary text-sm mt-1">Your News in 60 Seconds</p>
+                        <div class="entry">
+                            <div class="entry-title">Co-Founder @ <a href="https://boulevardbuilder.com" target="_blank" rel="noopener" class="company-name">Boulevard Builder</a></div>
+                            <div class="entry-description">Scaled development agency to $100k in revenue. Built 15+ apps</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title">Co-Founder @ <a href="https://boulevardlegacy.com" target="_blank" rel="noopener" class="company-name">Boulevard Legacy LLC</a></div>
+                            <div class="entry-description">Built and launched 10 apps in 6 months. Scaled to 100k+ downloads</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title">Founder @ <a href="https://www.careerwhiz.ai" target="_blank" rel="noopener" class="company-name">CareerWhiz AI</a></div>
+                            <div class="entry-description">10,000+ users, 100+ paying customers, 1M+ social media views</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title">Founder @ <a href="https://www.youtube.com/@GameTheSystem/videos" target="_blank" rel="noopener" class="company-name">GameTheSystem</a></div>
+                            <div class="entry-description">30,000+ subscribers, 5M+ views</div>
+                        </div>
                     </div>
-                </div>
-                <div class="container-card">
+                </section>
+
+                <!-- Experience -->
+                <section class="section-compact">
+                    <h2 class="section-title">Experience</h2>
                     <div>
-                        <p class="font-medium"><span class="company-name">CardBoard</span></p>
-                        <p class="text-secondary text-sm mt-1">Save gift cards to your phone</p>
+                        <div class="entry">
+                            <div class="entry-title">Growth Intern @ <a href="https://www.bitesight.com" target="_blank" rel="noopener" class="company-name">BiteSight</a> (YC Winter '24)</div>
+                            <div class="entry-description">Generated 200k+ social media views & 2.5k+ downloads</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title">Software Engineering Intern @ <a href="https://www.ihmc.us" target="_blank" rel="noopener" class="company-name">IHMC</a></div>
+                            <div class="entry-description">Developed ML-backed wildfire response simulation for US Navy</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title">Marketing Intern @ <a href="https://www.studyfetch.com" target="_blank" rel="noopener" class="company-name">StudyFetch</a></div>
+                            <div class="entry-description">Generated 20M+ social media views & $15k+ in revenue</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title">Research Intern @ <a href="https://theinformaticists.wordpress.com/2022/10/03/biofeedback-in-performance/" target="_blank" rel="noopener" class="company-name">Stanford University</a></div>
+                            <div class="entry-description">Researched biofeedback in performance. Co-authored & published research paper</div>
+                        </div>
                     </div>
-                </div>
+                </section>
             </div>
-        </section>
 
-        <!-- Languages -->
-        <section class="mb-12">
-            <h2 class="text-lg font-medium section-title">Languages 🌎</h2>
-            <div class="container-card">
-                <p class="text-secondary">
-                    <span class="font-medium">Italian</span> (native),
-                    <span class="font-medium">French</span> (native),
-                    <span class="font-medium">English</span> (fluent)
-                </p>
+            <!-- Right Column -->
+            <div>
+                <!-- Projects -->
+                <section class="section-compact">
+                    <h2 class="section-title">Projects</h2>
+                    <div>
+                        <div class="entry">
+                            <div class="entry-title"><a href="https://studywithme.gg" target="_blank" rel="noopener" class="company-name">StudyWithMe.gg</a></div>
+                            <div class="entry-description">Virtual study rooms platform</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title"><a href="https://paymeback.now" target="_blank" rel="noopener" class="company-name">PayMeBack.now</a></div>
+                            <div class="entry-description">Debt tracking and payment reminders</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title"><a href="https://joinstacks.app" target="_blank" rel="noopener" class="company-name">JoinStacks.app</a></div>
+                            <div class="entry-description">Bet with your friends</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title"><a href="https://insiderflow-cf8f0899712b.herokuapp.com" target="_blank" rel="noopener" class="company-name">InsiderFlow</a></div>
+                            <div class="entry-description">Make better investment decisions with insider data</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-title"><a href="https://www.filmrollr.com/" target="_blank" rel="noopener" class="company-name">FilmRollr</a></div>
+                            <div class="entry-description">Film camera effects with one click</div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Languages -->
+                <section class="section-compact">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="entry-description">
+                        Italian (native), French (native), English (fluent)
+                    </div>
+                </section>
+
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Contact -->
-        <section class="mb-8">
-            <h2 class="text-lg font-medium section-title">Contact 📲</h2>
-            <div class="container-card">
-                <a href="mailto:muratorigabriele1@gmail.com" class="text-secondary hover:text-primary flex items-center gap-2 mb-4">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+    <!-- Floating Contact CTA -->
+    <div id="floatingCta" onclick="toggleContact()" class="floating-cta">
+        <div class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+            <span class="cta-text">Want to build together?</span>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="contact-modal">
+        <div class="mb-4">
+            <h3 class="font-semibold text-lg mb-3">Let's connect!</h3>
+            <a href="mailto:muratorigabriele1@gmail.com" class="text-secondary hover:text-primary flex items-center gap-2 mb-3">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+                muratorigabriele1@gmail.com
+            </a>
+            <a href="tel:+13264675474" class="text-secondary hover:text-primary flex items-center gap-2 mb-4">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                </svg>
+                +1 (326) 467-5474
+            </a>
+            <div class="flex items-center gap-4 pt-2">
+                <a href="https://twitter.com/gmurtt" target="_blank" rel="noopener" class="social-icon">
+                    <svg class="w-6 h-6" fill="#1DA1F2" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                     </svg>
-                    muratorigabriele1@gmail.com
                 </a>
-                <div class="flex items-center gap-6">
-                    <a href="https://twitter.com/gmurtt" target="_blank" rel="noopener" class="social-icon">
-                        <svg class="w-6 h-6" fill="#1DA1F2" viewBox="0 0 24 24">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
-                    </a>
-                    <a href="https://instagram.com/gabm.io" target="_blank" rel="noopener" class="social-icon">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24">
-                            <defs>
-                                <radialGradient id="instagram-gradient" r="150%" cx="30%" cy="107%">
-                                    <stop offset="0%" style="stop-color:#fdf497"/>
-                                    <stop offset="5%" style="stop-color:#fdf497"/>
-                                    <stop offset="45%" style="stop-color:#fd5949"/>
-                                    <stop offset="60%" style="stop-color:#d6249f"/>
-                                    <stop offset="90%" style="stop-color:#285AEB"/>
-                                </radialGradient>
-                            </defs>
-                            <path fill="url(#instagram-gradient)" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.youtube.com/@muratorigabriele" target="_blank" rel="noopener" class="social-icon">
-                        <svg class="w-6 h-6" fill="#FF0000" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>
-                </div>
+                <a href="https://instagram.com/gabm.io" target="_blank" rel="noopener" class="social-icon">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24">
+                        <defs>
+                            <radialGradient id="instagram-gradient-modal" r="150%" cx="30%" cy="107%">
+                                <stop offset="0%" style="stop-color:#fdf497"/>
+                                <stop offset="5%" style="stop-color:#fdf497"/>
+                                <stop offset="45%" style="stop-color:#fd5949"/>
+                                <stop offset="60%" style="stop-color:#d6249f"/>
+                                <stop offset="90%" style="stop-color:#285AEB"/>
+                            </radialGradient>
+                        </defs>
+                        <path fill="url(#instagram-gradient-modal)" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@muratorigabriele" target="_blank" rel="noopener" class="social-icon">
+                    <svg class="w-6 h-6" fill="#FF0000" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 </body>
 </html>
