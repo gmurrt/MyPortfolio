@@ -84,6 +84,59 @@
             margin-bottom: 1rem;
             color: var(--text-color);
             font-size: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .fade-in-delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .fade-in-delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .fade-in-delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .fade-in-delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        .fade-in-delay-5 {
+            animation-delay: 0.5s;
+        }
+
+        .entry {
+            opacity: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .entry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .theme-toggle {
@@ -121,9 +174,11 @@
             margin-bottom: 1.5rem;
         }
 
-        .entry {
-            margin-bottom: 0.75rem;
+        .languages-section {
+            margin-bottom: 1rem !important;
+            margin-top: -1rem !important;
         }
+
 
         .entry-title {
             font-weight: 500;
@@ -137,6 +192,20 @@
             font-size: 0.8125rem;
             line-height: 1.4;
             font-weight: 400;
+        }
+
+        .languages-container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.2s ease;
+            opacity: 0;
+        }
+
+        .languages-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .floating-cta {
@@ -295,6 +364,41 @@
             if (savedTheme === 'dark') {
                 document.documentElement.classList.add('dark');
             }
+
+            // Animate entries on page load
+            const entries = document.querySelectorAll('.entry');
+            entries.forEach((entry, index) => {
+                entry.style.opacity = '0';
+                entry.style.animation = `fadeInUp 0.6s ease-out forwards`;
+                entry.style.animationDelay = `${0.2 + (index * 0.08)}s`;
+            });
+
+            // Animate languages container
+            const languagesContainer = document.querySelector('.languages-container');
+            if (languagesContainer) {
+                languagesContainer.style.opacity = '0';
+                languagesContainer.style.animation = `fadeInUp 0.6s ease-out forwards`;
+                languagesContainer.style.animationDelay = `0.5s`;
+            }
+
+            // Animate header elements
+            const header = document.querySelector('.profile-info h1');
+            if (header) {
+                header.style.opacity = '0';
+                header.style.animation = 'fadeInUp 0.8s ease-out 0.2s forwards';
+            }
+            
+            const subtitle = document.querySelector('.profile-info p');
+            if (subtitle) {
+                subtitle.style.opacity = '0';
+                subtitle.style.animation = 'fadeInUp 0.8s ease-out 0.3s forwards';
+            }
+
+            const profileImage = document.querySelector('.profile-picture');
+            if (profileImage) {
+                profileImage.style.opacity = '0';
+                profileImage.style.animation = 'fadeInUp 0.8s ease-out 0.1s forwards';
+            }
         });
     </script>
 </head>
@@ -331,6 +435,10 @@
                     <h2 class="section-title">Business</h2>
                     <div>
                         <div class="entry">
+                            <div class="entry-title">Founder @ <a href="https://joinstacks.app" target="_blank" rel="noopener" class="company-name">Stacks</a></div>
+                            <div class="entry-description">Creator Marketplace & Management Software</div>
+                        </div>
+                        <div class="entry">
                             <div class="entry-title">Co-Founder @ <a href="https://boulevardbuilder.com" target="_blank" rel="noopener" class="company-name">Boulevard Builder</a></div>
                             <div class="entry-description">Scaled development agency to $100k in revenue. Built 15+ apps</div>
                         </div>
@@ -348,21 +456,24 @@
                         </div>
                     </div>
                 </section>
+            </div>
 
+            <!-- Right Column -->
+            <div>
                 <!-- Experience -->
                 <section class="section-compact">
                     <h2 class="section-title">Experience</h2>
                     <div>
                         <div class="entry">
-                            <div class="entry-title">Growth Intern @ <a href="https://www.bitesight.com" target="_blank" rel="noopener" class="company-name">BiteSight</a> (YC Winter '24)</div>
-                            <div class="entry-description">Generated 200k+ social media views & 2.5k+ downloads</div>
+                            <div class="entry-title">Growth @ <a href="https://www.bitesight.com" target="_blank" rel="noopener" class="company-name">BiteSight</a> (YC Winter '24)</div>
+                            <div class="entry-description">Generated 200k+ views & 2.5k+ downloads</div>
                         </div>
                         <div class="entry">
-                            <div class="entry-title">Software Engineering Intern @ <a href="https://www.ihmc.us" target="_blank" rel="noopener" class="company-name">IHMC</a></div>
-                            <div class="entry-description">Developed ML-backed wildfire response simulation for US Navy</div>
+                            <div class="entry-title">SWE Intern @ <a href="https://www.ihmc.us" target="_blank" rel="noopener" class="company-name">IHMC</a></div>
+                            <div class="entry-description">Developed wildfire response simulation for US Navy</div>
                         </div>
                         <div class="entry">
-                            <div class="entry-title">Marketing Intern @ <a href="https://www.studyfetch.com" target="_blank" rel="noopener" class="company-name">StudyFetch</a></div>
+                            <div class="entry-title">Growth @ <a href="https://www.studyfetch.com" target="_blank" rel="noopener" class="company-name">StudyFetch</a></div>
                             <div class="entry-description">Generated 20M+ social media views & $15k+ in revenue</div>
                         </div>
                         <div class="entry">
@@ -371,40 +482,14 @@
                         </div>
                     </div>
                 </section>
-            </div>
-
-            <!-- Right Column -->
-            <div>
-                <!-- Projects -->
-                <section class="section-compact">
-                    <h2 class="section-title">Projects</h2>
-                    <div>
-                        <div class="entry">
-                            <div class="entry-title"><a href="https://studywithme.gg" target="_blank" rel="noopener" class="company-name">StudyWithMe.gg</a></div>
-                            <div class="entry-description">Virtual study rooms platform</div>
-                        </div>
-                        <div class="entry">
-                            <div class="entry-title"><a href="https://paymeback.now" target="_blank" rel="noopener" class="company-name">PayMeBack.now</a></div>
-                            <div class="entry-description">Debt tracking and payment reminders</div>
-                        </div>
-                      
-                        <div class="entry">
-                            <div class="entry-title"><a href="https://insiderflow-cf8f0899712b.herokuapp.com" target="_blank" rel="noopener" class="company-name">InsiderFlow</a></div>
-                            <div class="entry-description">Make better investment decisions with insider data</div>
-                        </div>
-                        <div class="entry">
-                            <div class="entry-title"><a href="https://www.filmrollr.com/" target="_blank" rel="noopener" class="company-name">FilmRollr</a></div>
-                            <div class="entry-description">Film camera effects with one click</div>
-                        </div>
-
-                    </div>
-                </section>
 
                 <!-- Languages -->
-                <section class="section-compact">
+                <section class="section-compact languages-section">
                     <h2 class="section-title">Languages</h2>
-                    <div class="entry-description">
-                        Italian (native), French (native), English (fluent)
+                    <div class="languages-container">
+                        <div class="entry-description">
+                            Italian (native), French (native), English (fluent)
+                        </div>
                     </div>
                 </section>
 
